@@ -1,30 +1,18 @@
-import { Component, inject } from '@angular/core';
-import { AuthenticationService } from '@core/services/authentication/authentication.service';
-import { environment } from '@environments/environment';
+import { Component, inject, signal } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [MatProgressSpinnerModule, MatCardModule, MatButtonModule],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
 export class Home {
-  public environmentName: string = environment.name;
-  
-  private readonly authenticationService: AuthenticationService = inject(AuthenticationService);
+  protected isLoading = signal(false);
 
-  public getTasks(): void {
-    // Call the authentication service to get tasks
-  }
-
-  public signIn(): void {
-    this.authenticationService.authenticate().subscribe({
-      next: (response) => {
-        console.log('User signed in:', response);
-      },
-      error: (error) => {
-        console.error('Sign in failed:', error);
-      },
-    });
+  navigateToTasks() {
+    throw new Error('Method not implemented.');
   }
 }

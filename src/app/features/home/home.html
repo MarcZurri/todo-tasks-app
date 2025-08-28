@@ -1,5 +1,14 @@
-<h1>Todo Tasks - ({{ environmentName }})</h1>
-<div class="button-container">
-  <button class="button" (click)="getTasks()">Get tasks</button>
-  <button class="button" (click)="signIn()">Sign In</button>
-</div>
+<mat-card class="home-card" appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>Bienvenido a la app de tareas</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>App de "desarrollo en modo lab" para gestionar tareas en base a listas y con la posibilidad de añadir, editar y eliminar de forma simulada.</p>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button matButton="filled" (click)="navigateToTasks()" >Empezar</button>
+  </mat-card-actions>
+</mat-card>
+@if (isLoading()) {
+  <mat-spinner></mat-spinner>
+}

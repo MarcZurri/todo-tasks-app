@@ -11,10 +11,9 @@ export class AuthenticationService {
   private readonly apiUrl = environment.apiUrl;
 
   private readonly authResponseSubject = new Subject<IAuthenticationResponse | null>();
+  public authResponse$ = this.authResponseSubject.asObservable();
 
   private readonly http: HttpClient = inject(HttpClient);
-
-  public authResponse$ = this.authResponseSubject.asObservable();
 
   public authenticate(): Observable<IAuthenticationResponse> {
     const body = {
@@ -23,9 +22,13 @@ export class AuthenticationService {
       expiresInMins: 5,
     };
 
-    return this.http.post<IAuthenticationResponse>(`${this.apiUrl}/auth/login`, body).pipe(
-      tap((authResponse) => this.setAuthResponse(authResponse))
-    );
+    return this.http
+      .post<IAuthenticationResponse>(`${this.apiUrl}/auth/login`, body)
+      .pipe(tap((authResponse) => this.setAuthResponse(authResponse)));
+  }
+
+  logout() {
+    this.setAuthResponse(null);
   }
 
   private setAuthResponse(authResponse: IAuthenticationResponse | null): void {

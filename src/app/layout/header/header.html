@@ -1,0 +1,17 @@
+<header class="app-header">
+  <div class="header-content">
+    <div class="title">
+      <h1>{{ appTitle }} - ({{ environmentName }})</h1>
+    </div>
+
+    <div class="auth-items">
+      @if (authUserFullName()) {
+      <img [src]="authUser()?.image" alt="User Image" class="user-image" />
+      <span class="user-name"> {{ this.authUserFullName() }} </span>
+      <button matButton="outlined" (click)="logout()">Cerrar Sesión</button>
+      } @else {
+      <button matButton="tonal" (click)="signIn()">Iniciar Sesión</button>
+      }
+    </div>
+  </div>
+</header>

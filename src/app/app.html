@@ -1,1 +1,5 @@
+<app-header [appTitle]="appTitle" (signingIn)="signIn()" (loggingOut)="logout()"/>
+@if (isLoading()) {
+  <mat-spinner style="justify-self: center;"></mat-spinner>
+}
 <router-outlet />
