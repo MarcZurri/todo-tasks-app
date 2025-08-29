@@ -11,14 +11,18 @@ import {
 } from '@angular/core';
 import { AuthenticationService } from '@core/services/authentication/authentication.service';
 import { environment } from '@environments/environment';
-import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { IAuthenticationResponse, IAuthUser } from '@core/models/authentication.model';
 import { Subject, takeUntil } from 'rxjs';
 import { MatButtonModule } from '@angular/material/button';
+import { TranslatePipe } from '@ngx-translate/core';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { Language } from '../components/language/language';
 
 @Component({
   selector: 'app-header',
-  imports: [MatButtonModule],
+  imports: [MatButtonModule, TranslatePipe, MatIconModule, MatDialogModule],
+
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
@@ -30,6 +34,7 @@ export class Header implements OnInit, OnDestroy {
   public environmentName: string = environment.name;
 
   private readonly authenticationService: AuthenticationService = inject(AuthenticationService);
+  dialog = inject(MatDialog);
 
   protected authUser = signal<IAuthUser | null>(null);
   protected authUserFullName = computed<string | null>(() =>
@@ -55,6 +60,13 @@ export class Header implements OnInit, OnDestroy {
   }
   logout() {
     this.loggingOut.emit();
+  }
+
+  changeLanguage() {
+    this.dialog.open(Language, {
+      width: '250px',
+      height: '150px'
+    });
   }
 
   private manageAuthUser(authResponse: IAuthenticationResponse | null): void {

@@ -1,17 +1,22 @@
 <header class="app-header">
   <div class="header-content">
-    <div class="title">
+    <div class="header-items">
       <h1>{{ appTitle }} - ({{ environmentName }})</h1>
+      @if (authUserFullName()) {
+      <img [src]="authUser()?.image" alt="User Image" class="user-image" />
+      <span class="user-name"> {{ this.authUserFullName() }} </span>
+      }
     </div>
 
     <div class="auth-items">
       @if (authUserFullName()) {
-      <img [src]="authUser()?.image" alt="User Image" class="user-image" />
-      <span class="user-name"> {{ this.authUserFullName() }} </span>
-      <button matButton="outlined" (click)="logout()">Cerrar Sesión</button>
+      <button matButton="outlined" (click)="logout()">{{ 'header.signOut' | translate }}</button>
       } @else {
-      <button matButton="tonal" (click)="signIn()">Iniciar Sesión</button>
+      <button matButton="tonal" (click)="signIn()">{{ 'header.signIn' | translate }}</button>
       }
+      <button matIconButton (click)="changeLanguage()">
+        <mat-icon>language</mat-icon>
+      </button>
     </div>
   </div>
 </header>

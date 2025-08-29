@@ -1,0 +1,28 @@
+{
+  "header": {
+    "signIn": "Iniciar Sesión",
+    "signOut": "Cerrar Sesión"
+  },
+  "home": {
+    "cardTitle": "Bienvenido a la app de tareas",
+    "cardContent": "App de \"desarrollo en modo lab\" para gestionar tareas en base a listas y con la posibilidad de añadir, editar y eliminar de forma simulada.",
+    "start": "Empezar"
+  },
+  "language": {
+    "chooseALanguage": "Elige un idioma",
+    "spanish": "Español",
+    "english": "Inglés"
+  },
+  "tasks": {
+    "list": {
+      "title": "Lista de Tareas",
+      "userId": "ID de Usuario",
+      "empty": "No hay tareas disponibles.",
+      "add": "Agregar Tarea"
+    },
+    "detail": {
+      "title": "Tarea numero",
+      "completed": "Completada"
+    }
+  }
+}

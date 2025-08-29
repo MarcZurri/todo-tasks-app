@@ -6,10 +6,11 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { ITask } from '../models/task.model';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-task-detail',
-  imports: [MatProgressSpinnerModule, MatCardModule, MatButtonModule, MatSlideToggleModule],
+  imports: [MatProgressSpinnerModule, MatCardModule, MatButtonModule, MatSlideToggleModule, TranslatePipe],
   templateUrl: './task-detail.html',
   styleUrl: './task-detail.scss',
 })

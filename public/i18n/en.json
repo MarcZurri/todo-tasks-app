@@ -1,0 +1,28 @@
+{
+  "header": {
+    "signIn": "Sign in",
+    "signOut": "Sign out"
+  },
+  "home": {
+    "cardTitle": "Welcome to the Task App",
+    "cardContent": "Lab mode app for managing tasks based on lists with the ability to add, edit, and delete items.",
+    "start": "Start"
+  },
+  "language": {
+    "chooseALanguage": "Choose a language",
+    "spanish": "Spanish",
+    "english": "English"
+  },
+  "tasks": {
+    "list": {
+      "title": "Task List",
+      "userId": "User ID",
+      "empty": "No tasks available.",
+      "add": "Add Task"
+    },
+    "detail": {
+      "title": "Task number",
+      "completed": "Completed"
+    }
+  }
+}

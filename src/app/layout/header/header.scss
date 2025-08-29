@@ -1,5 +1,4 @@
 .header-content {
-  max-width: 1200px;
   margin: 0 auto;
   padding: 1rem 2rem;
   display: flex;
@@ -8,28 +7,32 @@
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  
+
   .auth-items {
     display: flex;
     align-items: center;
-
-    .user-image {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: antiquewhite;
-      margin-right: 0.5rem;
-    }
-
-    .user-name {
-      font-weight: 500;
-      margin-right: 0.5rem;
-    }
   }
 }
 
-.title h1 {
-  margin: 0;
-  font-size: 1.5rem;
-  font-weight: 300;
+.header-items {
+  display: flex;
+  align-items: center;
+  .user-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: antiquewhite;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+  }
+
+  .user-name {
+    font-weight: 500;
+    margin-right: 0.5rem;
+  }
+  h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 300;
+  }
 }

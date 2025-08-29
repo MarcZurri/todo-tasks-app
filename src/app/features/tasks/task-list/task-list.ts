@@ -11,6 +11,7 @@ import { StateToIconPipe } from '@shared/pipes/state-to-icon.pipe';
 import { HighlightDirective } from '@shared/directives/highlight.directive';
 import { Router } from '@angular/router';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-task-list',
@@ -22,7 +23,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatIconModule,
     StateToIconPipe,
     HighlightDirective,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    TranslatePipe
   ],
   templateUrl: './task-list.html',
   styleUrl: './task-list.scss',
