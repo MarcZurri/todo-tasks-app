@@ -1,0 +1,17 @@
+.app-container {
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: rgb(248, 244, 212);
+  height: 70px;
+  z-index: 999;
+}
+
+.main-content {
+  padding-top: 70px;
+}

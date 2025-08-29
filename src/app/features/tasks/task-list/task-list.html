@@ -1,0 +1,26 @@
+<h2>Task List</h2>
+<mat-selection-list role="list" [hideSingleSelectionIndicator]="true" [multiple]="false">
+  @for (task of tasks(); track task.id) {
+  <mat-list-option [lines]="2" (click)="openTask(task)">
+    <mat-icon
+      matListItemIcon
+      fontIcon="{{ task.completed | stateToIconPipe }}"
+      class="{{ task.completed ? 'completed-icon' : 'not-completed-icon' }}"
+    ></mat-icon>
+    <p matListItemTitle>{{ task.todo }}</p>
+    <p
+      matListItemLine
+      style="width: fit-content"
+      [appHighlight]="
+        task.userId % 2 == 0 ? 'yellow' : task.userId > 50 ? 'lightblue' : 'lightgreen'
+      "
+    >
+      User id: {{ task.userId }}
+    </p>
+  </mat-list-option>
+  <mat-divider></mat-divider>
+  }
+</mat-selection-list>
+@if(this.isLoading()) {
+<mat-spinner style="justify-self: center"></mat-spinner>
+}

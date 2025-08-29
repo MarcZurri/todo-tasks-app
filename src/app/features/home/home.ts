@@ -2,6 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,9 +11,11 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   styleUrl: './home.scss',
 })
 export class Home {
+  private router = inject(Router);
+
   protected isLoading = signal(false);
 
   navigateToTasks() {
-    throw new Error('Method not implemented.');
+    this.router.navigate(['/tasks']);
   }
 }

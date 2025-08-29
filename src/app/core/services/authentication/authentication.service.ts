@@ -3,6 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { environment } from '@environments/environment';
 import { Observable, Subject, tap } from 'rxjs';
 import { IAuthenticationResponse } from '../../models/authentication.model';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +14,7 @@ export class AuthenticationService {
   private readonly authResponseSubject = new Subject<IAuthenticationResponse | null>();
   public authResponse$ = this.authResponseSubject.asObservable();
 
+  private router = inject(Router);
   private readonly http: HttpClient = inject(HttpClient);
 
   public authenticate(): Observable<IAuthenticationResponse> {
@@ -29,6 +31,7 @@ export class AuthenticationService {
 
   logout() {
     this.setAuthResponse(null);
+    this.router.navigate(['/home']);
   }
 
   private setAuthResponse(authResponse: IAuthenticationResponse | null): void {

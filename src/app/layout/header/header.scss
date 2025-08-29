@@ -5,7 +5,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  
   .auth-items {
     display: flex;
     align-items: center;

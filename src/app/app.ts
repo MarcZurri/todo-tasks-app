@@ -1,5 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { Header } from './layout/header/header';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthenticationService } from '@core/services/authentication/authentication.service';
@@ -16,6 +16,8 @@ export class App {
   protected appTitle: string = 'Todo Tasks';
   private readonly snackBar = inject(MatSnackBar);
   private readonly authenticationService: AuthenticationService = inject(AuthenticationService);
+  private router = inject(Router);
+  private route = inject(ActivatedRoute);
 
   protected isLoading = signal(false);
 
@@ -36,5 +38,6 @@ export class App {
 
   logout() {
     this.authenticationService.logout();
+    this.router.navigate(['/home']);
   }
 }
